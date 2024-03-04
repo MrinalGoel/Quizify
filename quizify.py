@@ -10,7 +10,7 @@ import os
 
 # API Key
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = " "
 
 
 def process_pdf(pdfdoc):
@@ -25,11 +25,11 @@ def process_pdf(pdfdoc):
 	# Create tokens 
 
 	text_splitter = CharacterTextSplitter(
-    separator = "\n",
-    chunk_size = 800,
-    chunk_overlap  = 200,
-    length_function = len,
-	)
+	    separator = "\n",
+	    chunk_size = 800,
+	    chunk_overlap  = 200,
+	    length_function = len,
+		)
 	texts = text_splitter.split_text(raw_text)
 
 	# get embeddings and save to vector DB
@@ -48,7 +48,7 @@ def generate_quiz(document_search):
 	docs = document_search.similarity_search(query)
 	response = chain.run(input_documents=docs, question=query)
 	st.write("Your AI crafted pop quiz is ready : ")
-	st.image('/content/spongebob_dancing_1213.png')
+	#st.image('/content/spongebob_dancing_1213.png')
 	st.write(response)
 
 
